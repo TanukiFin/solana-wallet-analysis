@@ -10,7 +10,7 @@ from myfunction import transfer
 st.set_page_config(
     page_title="crypto",
     page_icon="💸",
-    layout="centered",
+    layout="wide",
 )
 
 # no footer
@@ -43,20 +43,22 @@ address = c1.text_input("Address", "CbX4X1AsaRYmMibzbfSEdYs5e1zTUQ77JR4x9BsVd2F7
 threshold =  c2.number_input("最小USD價值:", value=10)
 confirm = st.button("Confirm")
 
+# 按下確認後
 if confirm:
-    st.write(address)
+    st.write("目前查詢地址: " + address)
+
+    with st.spinner("執行中..."):
+        
+        transactions = transfer.fetch_transactions(address)
+        sendTX_group, receiveTX_group = transfer.parse_transactions(transactions, address, threshold)
+        total_interact = transfer.find_associated_wallet(sendTX_group, receiveTX_group)
 
 
+    st.markdown("# **高度相關地址 Highly associated wallet**")
+    st.write(total_interact)
 
+    st.markdown("# **send**")
+    st.write(sendTX_group)
 
-with st.spinner('已獲取TX數'):
-    
-    transactions = transfer.fetch_transactions(address)
-    sendTX_group, receiveTX_group = transfer.parse_transactions(transactions, address, threshold)
-
-
-st.markdown("**send**")
-st.write(sendTX_group)
-
-st.markdown("**receive**")
-st.write(receiveTX_group)
+    st.markdown("# **receive**")
+    st.write(receiveTX_group)
