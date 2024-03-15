@@ -1,3 +1,6 @@
+# conda activate crypto
+# streamlit run Home.py
+
 import streamlit as st
 import requests
 import pandas as pd
@@ -49,16 +52,16 @@ if confirm:
 
     with st.spinner("執行中..."):
         
-        transactions = transfer.fetch_transactions(address)
+        transactions = transfer.fetch_all_transactions(address)
         sendTX_group, receiveTX_group = transfer.parse_transactions(transactions, address, threshold)
         total_interact = transfer.find_associated_wallet(sendTX_group, receiveTX_group)
 
 
-    st.markdown("# **高度相關地址 Highly associated wallet**")
+    st.markdown("### 🔗**高度相關地址 Highly associated wallet**")
     st.write(total_interact)
 
-    st.markdown("# **send**")
+    st.markdown("### **send**")
     st.write(sendTX_group)
 
-    st.markdown("# **receive**")
+    st.markdown("### **receive**")
     st.write(receiveTX_group)

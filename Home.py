@@ -6,6 +6,8 @@ import time
 import datetime
 import matplotlib.pyplot as plt
 
+from solana.rpc.api import Client
+
 st.set_page_config(
     page_title="page_title",
     page_icon="💸",
