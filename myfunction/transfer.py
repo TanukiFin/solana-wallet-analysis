@@ -47,6 +47,14 @@ def fetch_all_transactions(address="4NVoofLVJqExqFCLGEaw2hfNT7pDRd1Rzbas1XR8f2YY
         else:
             url_with_signature = url
         response = requests.get(url_with_signature)
+
+
+        if response.status_code != 200:
+            print("请求出错，暂停 10 秒后继续：", response.status_code)
+            time.sleep(10)
+            continue
+
+      
         data = response.json()
         
         if "error" in data:
