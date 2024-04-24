@@ -248,8 +248,12 @@ def find_associated_wallet(sendTX_group, receiveTX_group):
                     total_interact["mark"].loc[aaa] = "its "+exchangeTF 
 
             # 計算最後交易日
-            lastTx = pd.to_datetime(ddd[0]["timestamp"], unit='s').strftime('%Y-%m-%d')        
-            total_interact["lastTx"].loc[aaa] = lastTx
+            try:
+                lastTx = pd.to_datetime(ddd[0]["timestamp"], unit='s').strftime('%Y-%m-%d')        
+                total_interact["lastTx"].loc[aaa] = lastTx
+            except:
+                total_interact["lastTx"].loc[aaa] = ""
+              
             count += 1
             if count > 7:
                 pass
