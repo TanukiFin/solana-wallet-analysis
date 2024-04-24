@@ -81,7 +81,10 @@ def fetch_all_transactions(address="4NVoofLVJqExqFCLGEaw2hfNT7pDRd1Rzbas1XR8f2YY
             print("沒有更多的交易了")
             counter.write("總共TX數:"+str(len(transactions)))
             break
-
+        
+        if len(transactions)>2000:
+          break
+          
     return  transactions   
 
 
