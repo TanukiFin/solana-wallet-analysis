@@ -73,7 +73,10 @@ def fetch_all_transactions(address="4NVoofLVJqExqFCLGEaw2hfNT7pDRd1Rzbas1XR8f2YY
             print("已獲取交易：", len(transactions))
             last_signature = data[-1]["signature"]
             counter.write(str(len(transactions)))
-
+          
+        elif len(transactions)>2000:
+            break
+          
         else:
             print("沒有更多的交易了")
             counter.write("總共TX數:"+str(len(transactions)))
