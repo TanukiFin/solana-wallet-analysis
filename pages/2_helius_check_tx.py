@@ -3,18 +3,7 @@
 
 import streamlit as st
 import requests
-import pandas as pd
-import numpy as np
 import time
-import datetime
-import matplotlib.pyplot as plt
-from myfunction import transfer
-import requests
-import json
-import datetime
-import random
-import time
-import pandas as pd
 
 
 api_key = "12a476fe-a758-47da-bd31-4c4942430f23"
@@ -45,7 +34,6 @@ def no_footer():
 def fetch_transactions_by_address(address, params={}): # max: 100 txs
     while True:
         try:
-            randNum = random.randint(0, len(api_key) - 1)
             url = f"https://api.helius.xyz/v0/addresses/{address}/transactions?api-key={api_key[randNum]}"
             response = requests.get(url, params=params )
             data = response.json()
@@ -58,7 +46,6 @@ def fetch_transactions_by_address(address, params={}): # max: 100 txs
 def fetch_transactions_by_address(address, params={}): # max: 100 txs
     while True:
         try:
-            randNum = random.randint(0, len(api_key) - 1)
             url = f"https://api.helius.xyz/v0/addresses/{address}/transactions?api-key={api_key[randNum]}"
             response = requests.get(url, params=params )
             data = response.json()
