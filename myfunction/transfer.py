@@ -11,9 +11,6 @@ from solders.pubkey import Pubkey
 from solana.rpc.api import Client
 from solders.signature import Signature
                         
-pd.set_option('display.max_rows', 30)
-pd.set_option('display.max_columns', 10) 
-pd.set_option('display.max_colwidth', 30) 
 
 api_key = ["814e2855-a7f8-4d84-b0bc-82cedf5694e3",
            "e10ad31d-205d-4bd2-ad35-e261cd901f38",
@@ -48,13 +45,12 @@ def fetch_all_transactions(address="4NVoofLVJqExqFCLGEaw2hfNT7pDRd1Rzbas1XR8f2YY
             url_with_signature = url
         response = requests.get(url_with_signature)
 
-
         if response.status_code != 200:
             print("请求出错，暂停 10 秒后继续：", response.status_code)
             time.sleep(10)
             continue
 
-      
+
         data = response.json()
         
         if "error" in data:
@@ -73,18 +69,16 @@ def fetch_all_transactions(address="4NVoofLVJqExqFCLGEaw2hfNT7pDRd1Rzbas1XR8f2YY
             print("已獲取交易：", len(transactions))
             last_signature = data[-1]["signature"]
             counter.write(str(len(transactions)))
-          
+
         elif len(transactions)>2000:
             break
-          
+
         else:
             print("沒有更多的交易了")
             counter.write("總共TX數:"+str(len(transactions)))
             break
-        
-        if len(transactions)>2000:
-          break
-          
+
+
     return  transactions   
 
 
@@ -253,7 +247,7 @@ def find_associated_wallet(sendTX_group, receiveTX_group):
                 total_interact["lastTx"].loc[aaa] = lastTx
             except:
                 total_interact["lastTx"].loc[aaa] = ""
-              
+                
             count += 1
             if count > 7:
                 pass

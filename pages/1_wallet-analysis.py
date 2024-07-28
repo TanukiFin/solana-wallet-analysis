@@ -57,7 +57,6 @@ if confirm:
         total_interact = transfer.find_associated_wallet(sendTX_group, receiveTX_group)
         total_interact.columns = ["🏷️mark","totalUSD","totalTX","📤sendUSD", "📤sendTX","📥receiveUSD","📥receiveTX","🕙lastTx","💵SOL bal."]
 
-
     st.markdown("### 🔗**高度相關地址 Highly associated wallet**")
     st.write(total_interact)
 
