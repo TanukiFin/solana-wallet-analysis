@@ -1,6 +1,6 @@
 matplotlib==3.4.2
 plotly==5.9.0
-numpy==1.20.2
+numpy==1.21.0
 streamlit==1.19.0
 solana==0.30.0
 solders==0.15.0
