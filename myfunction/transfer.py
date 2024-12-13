@@ -12,14 +12,7 @@ from solana.rpc.api import Client
 from solders.signature import Signature
                         
 
-api_key = ["814e2855-a7f8-4d84-b0bc-82cedf5694e3",
-           "e10ad31d-205d-4bd2-ad35-e261cd901f38",
-           "6d8bfbc2-44f3-4c30-b31e-c1322741dce8",
-           "4a53c62c-2be7-4030-8e51-7f4867bf16c4",
-           "f5678270-3a1a-4868-ba6a-1d70a0891966",
-           "8c5ca67a-9aa2-4986-905f-2a95b1927b34",
-           "12728bae-550f-4f59-a42c-94b89d9e86b8",
-           "0c496773-5e98-428a-90da-4b24095db327"]
+api_key = ["17b80ebe-e038-4233-8b65-a3861417664f",]
 
 exchange = pd.read_csv("exchange.csv")
 
